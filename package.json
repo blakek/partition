@@ -1,0 +1,84 @@
+{
+  "name": "@blakek/partition",
+  "version": "0.0.1",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "author": "GS&F Devs <dev@gsandf.com> (https://gsandf.com/)",
+  "description": "🗂 Partition an array or other iterable into two or more parts",
+  "bugs": {
+    "url": "https://github.com/gsandf/create-gsandf-project/issues"
+  },
+  "homepage": "https://github.com/gsandf/create-gsandf-project",
+  "keywords": [
+    "hash",
+    "lookup",
+    "map"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gsandf/create-gsandf-project.git"
+  },
+  "license": "MIT",
+  "files": [
+    "dist/**"
+  ],
+  "sideEffects": false,
+  "types": "dist/index.d.ts",
+  "ava": {
+    "extensions": [
+      "js",
+      "ts"
+    ],
+    "files": [
+      "src/**/*.test.js",
+      "src/**/*.test.ts"
+    ],
+    "ignoredByWatcher": [
+      "!src/**"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@rollup/plugin-babel": "^5.0.3",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "amper-scripts": "^1.0.0-0",
+    "ava": "^3.8.2",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.15.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {},
+  "scripts": {
+    "build": "run-s build:clean build:types build:js",
+    "build:clean": "rimraf ./dist",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "format-check": "amper-scripts format-check",
+    "format": "amper-scripts format-write",
+    "lint": "amper-scripts lint --config ./.eslintrc.js 'src/**/*.{js,ts,tsx}'",
+    "prepublish": "yarn build",
+    "test": "ava"
+  }
+}
